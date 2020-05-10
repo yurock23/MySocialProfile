@@ -1,0 +1,71 @@
+import java util.Scanner;
+import java.io.*;
+
+public class Test{
+    public static void main (String[]args){
+        //call the constructor to create a new profile
+        MySocialProfile One=new MySocialProfile();// Same as the constructor called in the example TreeApp class, I think we should not give any parameter at this stage, we should add those information after created the profile 
+        
+        String instruction="":
+
+
+        String path = "c:\\store.txt"; //this line gives the path of the text which is used to store the information in the myspcalprofile
+        
+        Scanner lineScanner = new Scanner(new FileInputStream(path));//open the file
+
+
+        do{
+            
+            System.out.print("\nEnter a letter: \n\n quit program (q) \n display profile (lp) \n ");
+            System.out.print("display events (le) \n display timeline (lt) \n display friend list (lf) \n\t\t --> ");
+
+            Scanner scanner0 = new Scanner(System.in);
+            System.out.println("enter the instruction");
+            String na = scanner0.next();
+            instruction=na; //get instructions everytime
+
+            switch (instruction){
+                case 'q':
+                    System.out.println("\nGoodbye.");
+                    break;
+                case "ap":
+                    one.addProfile();
+                case "lp":
+                    one.loadProfile();
+                case "le":
+                    one.loadEvents();
+                case "lt":
+                    one.loadTimeline();
+                case "lf":
+                    one.loadFriend();
+                
+            }while instruction!="q";
+
+            
+
+        }
+    }
+
+
+    //for the functions below, I am not sure why would we need them...
+    public static String getString() throws IOException
+    {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        String s = br.readLine();
+        return s;
+    }
+    
+    public static char getChar() throws IOException
+    {
+        String s = getString();
+        return s.charAt(0);
+    }
+    
+    public static int getInt() throws IOException
+    {
+        String s = getString();
+        return Integer.parseInt(s);
+    }
+    
+}  
